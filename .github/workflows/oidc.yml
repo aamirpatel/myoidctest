@@ -1,5 +1,5 @@
 
-name: AWS OIDC GITHUB Demo
+name: AWS oidc
 on:
   push:
     branches: [ "main" ]
@@ -24,10 +24,7 @@ jobs:
         uses: aws-actions/configure-aws-credentials@v4.0.2
         with:
           role-to-assume: arn:aws:iam::992382544923:role/githuboidcrole
-          ## role-session-name: ghrole2
           aws-region: ${{ env.AWS_REGION }}
-          audience: sts.amazonaws.com
-     ## - name: Print Assumed Role
-     ##  run: aws sts get-caller-identity   
+          audience: sts.amazonaws.com  
       - name: Print s3 buckets
         run: aws s3 ls
